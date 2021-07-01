@@ -35,10 +35,11 @@ namespace YoketoruVS2021_2
             this.clearLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.hiLabel = new System.Windows.Forms.Label();
             this.startButton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.copyrighLabel = new System.Windows.Forms.Label();
+            this.titleButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // titleLabel
@@ -91,16 +92,16 @@ namespace YoketoruVS2021_2
             this.label5.TabIndex = 4;
             this.label5.Text = "★：10";
             // 
-            // label6
+            // hiLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Yu Gothic UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(276, 190);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(190, 37);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "ハイスコア：100";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.hiLabel.AutoSize = true;
+            this.hiLabel.Font = new System.Drawing.Font("Yu Gothic UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.hiLabel.Location = new System.Drawing.Point(276, 190);
+            this.hiLabel.Name = "hiLabel";
+            this.hiLabel.Size = new System.Drawing.Size(190, 37);
+            this.hiLabel.TabIndex = 5;
+            this.hiLabel.Text = "ハイスコア：100";
+            this.hiLabel.Click += new System.EventHandler(this.label6_Click);
             // 
             // startButton
             // 
@@ -112,6 +113,10 @@ namespace YoketoruVS2021_2
             this.startButton.UseVisualStyleBackColor = true;
             this.startButton.Click += new System.EventHandler(this.button1_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // copyrighLabel
             // 
             this.copyrighLabel.AutoSize = true;
@@ -122,14 +127,24 @@ namespace YoketoruVS2021_2
             this.copyrighLabel.TabIndex = 7;
             this.copyrighLabel.Text = "copyright©2021望月";
             // 
+            // titleButton
+            // 
+            this.titleButton.Location = new System.Drawing.Point(301, 287);
+            this.titleButton.Name = "titleButton";
+            this.titleButton.Size = new System.Drawing.Size(159, 54);
+            this.titleButton.TabIndex = 8;
+            this.titleButton.Text = "タイトルへ";
+            this.titleButton.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.titleButton);
             this.Controls.Add(this.copyrighLabel);
             this.Controls.Add(this.startButton);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.hiLabel);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.clearLabel);
@@ -150,10 +165,11 @@ namespace YoketoruVS2021_2
         private System.Windows.Forms.Label clearLabel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label hiLabel;
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label copyrighLabel;
+        private System.Windows.Forms.Button titleButton;
     }
 }
 
