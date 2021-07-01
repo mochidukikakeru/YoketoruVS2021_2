@@ -12,6 +12,23 @@ namespace YoketoruVS2021_2
 {
     public partial class Form1 : Form
     {
+        const bool isDebug = true;
+
+        const int PlayerMax = 1;
+        const int EnemyMax = 3;
+        const int ItemMax = 3;
+        const int ChrMax = PlayerMax + EnemyMax + ItemMax;
+
+        Label[] chrs = new Label[ChrMax];
+
+        const int PlayerIndex = 0;
+        const int EnemyIndex = PlayerMax;
+        const int ItemIndex = EnemyMax+EnemyMax;
+
+        const string PlayerText = "(・ｍ・)";
+        const string EnemyText = "🔶";
+        const string ItemText = "★";
+
         enum State
         {
             None=-1,
@@ -26,23 +43,40 @@ namespace YoketoruVS2021_2
         public Form1()
         {
             InitializeComponent();
+
+            for(int i=0; i < ChrMax; i++)
+            {
+                chrs[i] = new Label();
+                chrs[i].AutoSize = true;
+                if(i==PlayerIndex)
+                {
+                    chrs[i].Text = PlayerText;
+                }
+                else if(i<ItemIndex)
+                {
+                    chrs[i].Text = EnemyText;
+                }
+                else
+                {
+                    chrs[i].Text = ItemText;
+                }
+                chrs[i].Font = tempLabel.Font;
+                Controls.Add(chrs[i]);
+            }
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
 
         }
-
         private void label6_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void Butoon1_Click(object sender, EventArgs e)
         {
 
         }
-
         private void label4_Click(object sender, EventArgs e)
         {
 
@@ -53,6 +87,10 @@ namespace YoketoruVS2021_2
             if (nextState!=State.None)
             {
                 initProc();
+            }
+            if(currentState==State.Game)
+            {
+                UpdateGame();
             }
         }
 
@@ -79,8 +117,22 @@ namespace YoketoruVS2021_2
                     copyrighLabel.Visible = false;
                     hiLabel.Visible = false;
                     break;
+
+                    for (int i = EnemyIndex; i < ChrMax; i++)
+                    {
+                        chrs[i].Left = rand.Next(ClientSize.Width - chrs[i].Width);
+                        chrs[i].Top = rand.Next(ClientSize.Height - chrs[i].Height);
+                    }
             }
         }
+
+        void UpdateGame()
+        {
+            Point mp = PointToClient(MousePosition);
+
+            //TODO: mpがプレイヤーラベルの中心になるように設定
+        }
+
         private void startButton_Click(object sender, EventArgs e)
         {
             nextState = State.Game;
